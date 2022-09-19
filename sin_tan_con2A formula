@@ -1,0 +1,48 @@
+""" tan_2A, sin_2A, cos_2A """
+def get_new_formula_s(sin_A, cos_A):
+    """Display sin_2A formula """
+    A_A = f"{2 * sin_A * cos_A}"
+    return A_A
+def get_new_formula_(sin_A, cos_A):
+    """ Display cos_2A formula """
+    A_B = f"{cos_A ** 2 - sin_A ** 2, 2 * cos_A ** 2 - 1, 1 - 2 * sin_A ** 2}"
+    return A_B
+def get_new_formula(tan_A):
+    """ Display tan_2A formula """
+    A_C = f"{2 * tan_A / 1 - tan_A ** 2}"
+    return A_C
+def get_new_formul(tan_A):
+    """ Display sin_2A in tan_A formula"""
+    A_D = f"{2 * tan_A / 1 + tan_A ** 2}"
+    return A_D
+def get_new_formu(tan_A):
+    """ Display cos_2A in tan_A formula"""
+    A_E = f"{1 - tan_A ** 2 / 1 + tan_A ** 2}"
+    return A_E
+
+print("If you entered the value of sin_A, cos_A and tan_A"
+      "\nthen you will get answer in sin_2A, cos_2A, tan_2A. In tan_A form = (sin_2A, cos_2A)")
+
+d1 = input("Enter Your Good Name:- ")
+while True:
+    print("\nEnter 0.0 at any time to quit.")
+    A = float(input("Enter the value of sin_A:- "))
+    if A == 0.0:
+        print(f"Thank you {d1} for use this program.")
+        break
+
+    B = float(input("Enter the value of cos_A:- "))
+    if B == 0.0:
+        print(f"Thank you {d1} for use this program.")
+        break
+
+    C = float(input("Enter the value of tan_A:- "))
+    if C == 0.0:
+        print(f"Thank you {d1} for use this program.")
+        break
+
+    print(f"\nsin_2A = {get_new_formula_s(A, B)}")
+    print(f"\ncos_2A = {get_new_formula_(A, B)}")
+    print(f"\ntan_2A = {get_new_formula(C)}")
+    print(f"\nIn tan_A -> sin_2A = {get_new_formul(C)}")
+    print(f"\nIn tan_A -> cos_2A = {get_new_formu(C)}")
