@@ -1,0 +1,15 @@
+"""
+2.1 Simple Message: Assign a message to a variable, and then print that message.
+"""
+message = "Knowlegde Is A Real Wealth!"
+print(message)
+
+"""
+2.2 Simple Messages: Assign a message to a variable, and print that message.
+Then change the value of the varible to a new message, and print the new message.
+"""
+message = "What is your real goal!"
+print(message)
+
+message = "My real goal is open a Succesful Tech Start-Up"
+print(message)
