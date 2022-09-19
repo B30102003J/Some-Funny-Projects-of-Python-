@@ -1,0 +1,28 @@
+
+while(True):
+    print("Enter exit() for exit the code.")
+    print("Enter Your Word Which you find\t")
+    Pd_a = {"a": "one\n", "A-one":"first class\n", "aback":"toward the back\n", "abacus":"towards the stern of vessel\n",
+                         "abondon":"to give up entirely,give up\n", "abase":"degrade\n", "abash":"to put to shame\n",
+                         "abate":"lessen\n", "abbreviate":"shorten\n", "ABC":"most elementary knowledge of a subject\n","abdicate":"renounce\n",
+                         "abdomen":"belly\n", "abduct":"kidnap\n", "abeyance":"condition of not being in force or use\n",
+                         "abhor":"to think of with hatred\n", "ability":"capacity or power\n", "abject":"wretched, miserable\n",
+                         "abjure":"promise to give up a belief\n", "ablaze":"on fire\n", "able":"capable\n", "ablution":"ritual washing of body\n",
+                         "abnormal":"extraordinary\n", "aboard":"on or in a ship\n", "abode":"house or dwelling place\n", "abolish"
+                         :"to put an end to\n", "A-bomb":"atomic bomb\n", "abominable":"unpleasant\n","back":"an earlier position\n", "ball":"solid hollow sphere used in game\n", "balled":"simple song or poem\n",
+                         "barber":"whose person trade is shaving or cutting hair\n", "bard":"minstrel or poet\n", "batch":"number of person as a group\n",
+                         "bath":"washing of the body\n", "beach":"coast, shore\n", "begrudge":"show dissatisfaction\n", "beguil":"to cheat\n",
+                         "belt":"strip of cloth\n", "bench":"long seat of wood or stone\n", "best":"superlative of good\n", "bestir":"rouse into action\n", "bifocal"
+                         :"esp. of lenses in spectacles\n", "big":"large size\n", "exit()":" the code is exit"}
+
+    try:
+        x1 = input()
+        print(f"{x1} : {Pd_a[x1].title()}\n")
+        if x1 == 'exit()':
+            exit()
+
+    except Exception as e:
+        print(f"This word is not in dictionary.")
+
+    continue
+#print(Pocket_Dictionary_b[x1]
