@@ -1,0 +1,15 @@
+# Changing case in a String with Methods
+name = "ada lovelace"
+print(name.title())
+
+""" Save this file as name.py, and then run it. You should see this output:
+        Ada Lovelace
+"""
+
+name = "Ada Lovelace"
+print(name.upper())
+print(name.lower())
+
+# this wil display the following output:-
+#           ADA LOvELACE
+#           ada lovelace
