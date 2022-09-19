@@ -1,0 +1,21 @@
+"""  2tan(inv)x = tan(inv)(2x/1-x**2)
+=    sin(inv) (2x / 1+x**2)
+=     cos(inv) (1-x**2 / 1+x**2)"""
+def get_formula_s(x):
+    A__A = f"{(2 * x) / (1 - x ** 2)}"
+    return A__A
+def get__formula_s(x):
+    A_B = f"{(2 * x) / (1 + x ** 2)}"
+    return A_B
+def get__formula__s(x):
+    A_C = f"{(1 - x ** 2) / (1 + x ** 2)}"
+    return A_C
+n2 = input("Enter your good name: ")
+while True:
+    f1 = float(input("\nEnter the value of x:- "))
+    if f1 == 0.0:
+        print(f"Thank you {n2} for use this program.")
+        break
+    print(f"2tan(inv)x = tan(inv) {get_formula_s(f1)}")
+    print(f"2tan(inv)x = sin(inv) {get__formula_s(f1)}")
+    print(f"2tan(inv)x = cos(inv) {get__formula__s(f1)}")
