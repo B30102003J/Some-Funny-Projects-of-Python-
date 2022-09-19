@@ -1,0 +1,95 @@
+# Problem 2
+
+#  You need to unpack N elements from an iterable, but the iterable may be longer than N elements, causing a 
+#  "to many values to unpack" exception.
+
+# Sol: Python "star expressions" can be used to address the problem. For ex: 
+
+# def drop_first_last(grades):
+#     first, *middle, last = grades
+#     return avg(middle)
+
+
+# As another use case, suppose you have user records that consist of a name and email address, followed by an
+#    arbitary number of phone numbers. You could unpack the  records like this:
+
+record = ('Dave', 'dave@example.com', '773-555-1212', '874-555-1212')
+name, email, *phone_number = record
+
+print(name)
+print(email)
+print(phone_number)
+
+# def company_sales():
+#     *trailing_qtrs, current_qtr = sales_record
+#     trailing_avg = sum(trailing_qtrs) / len(trailing_qtrs)
+#     return avg_comparison(trailing_avg, current_qtr)
+
+*trailing, current = [10, 8, 7, 1, 9, 5, 10, 3]
+print(trailing)
+print(current)
+
+"""
+# Dicusstion
+# Discussion: Extented iterable unpacking is tailor-made for unpacking iterables of unknown or arbitary length.
+#             Oftentimes, these iterables have some known component or pattern in their construction (e.g. 
+#             "Everything after element 1 is a phone number").
+
+# It is worth nothing that the star syntax can be especially usefull useful when iterating over a sequence of 
+#  tuples:
+
+record = [
+    ('foo', 1, 2),
+    ('bar', 'hello'),
+    ('foo', 3, 4),
+]
+
+def do_foo(x, y):
+    print('foo', x, y)
+
+def do_bar(s):
+    print('bar', s)
+
+for tag, *args in record:
+    if tag == 'foo':
+        do_foo(*args)
+    elif tag == 'bar':
+        do_bar(*args)
+
+# Star unpacking can also be useful when combined with certain kinds of string processing operation, such as
+#          splitting. For ex:
+
+line = 'nobody:*:-2:-2:Unprivileged User:/var/empty:/usr/bin/false'
+uname, *fields, homedir, sh = line.split(':')
+print(uname)
+print(homedir)
+print(sh)
+print(fields)
+
+# sometimes you might want to unpack values and throw them away. You can't just specify a bare * when unpacking
+#  ,but you could use a common throwaway variable name, such as_ or ign (ignored). For ex:
+
+records = ('ACME', 50, 123.45, (12, 18, 2012))
+name, *_, (*_, year) = records
+
+print(name)
+print(year)
+
+# there is a certain similarity between star unpacking and list-processing feature of various functional languages.
+# For ex, if you have a list, you can easily split it into head and tail components like this:
+ 
+items = [1, 10, 7, 4, 5, 9]
+head, *tail = items
+
+print(head)
+print(tail)
+
+# One could imagine writing function that perform such splitting in order to carry out some kind of clever recursive
+#  algorithm. For ex:
+
+def sum(items):
+    head, *tail = items
+    return head + sum(tail) if tail else head
+
+print(sum(items))
+"""
