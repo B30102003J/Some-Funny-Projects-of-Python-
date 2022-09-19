@@ -1,0 +1,32 @@
+print("Market capitalization to GDP = SMC / GDP * 100")
+print("where:"
+      "\nSMC = Stock Market Capitalization"
+      "\nGDP = Gross Domestic Product")
+
+def Market_capitalization(smc, gdp):
+    """Display Stock Market Capitalization"""
+    market_capitalization = f"{smc / gdp * 100}"
+
+    return market_capitalization
+
+r1 = input("Enter Your Good Name: ").title()
+while True:
+    print("\nEnter 0.0 in gdp or smc value for exit.")
+    v1 = float(input("Enter the value of smc: "))
+    b1 = float(input("Enter the value of gdp: "))
+
+    if v1 == 0.0 or b1 == 0.0:
+        print(f"\nThank You {r1} for using this program.")
+        exit()
+
+    print(f"\nStock Market Capitalization to GDP is: {Market_capitalization(v1, b1)}%")
+    if Market_capitalization(v1, b1) <= "54%":
+        print("Significantly Undervalued")
+    elif "54%" < Market_capitalization(v1, b1) <= "70%":
+        print("Modestly Undervalued")
+    elif "70%" < Market_capitalization(v1, b1) <= "85%":
+        print("Fair Valued")
+    elif "85%" < Market_capitalization(v1, b1) <= "101%":
+        print("Modestly Overvalued")
+    elif Market_capitalization(v1, b1) > "101%":
+        print("Significantly Overvalued")
