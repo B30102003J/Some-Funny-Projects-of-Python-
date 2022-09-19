@@ -1,0 +1,68 @@
+# Using variabel in Strings:
+# In some situtation, you'll want to use a variable's value inside a string.
+
+first_name = "ada"
+last_name = "lovelace"
+full_name = f"{first_name} {last_name}"
+print(full_name)
+
+print(f"Hello, {full_name.title()}!")
+"""These full name is used in a sentece that greets the uer, and the
+   title() method changes the name to title case. This code returns a simple
+   but nicely formatted greeting:
+"""
+# You can also use f-strings to compose a message, and then assign the entire
+# message to a variable:
+message = f"Hello, {full_name.title()}!"
+print(message)
+
+full_name = "{} {}".format(first_name, last_name)
+print(full_name.title())
+
+# Adding Whitespace to Strings With Tabs or Newlines
+"""
+>>> print("Python")
+Python
+>>> print("\tPython")
+        Python
+>>> #to add a new line in a string, use the character combination \n:
+>>> print("Languages: \nPython\nC\nJavaScript")
+Languages:
+Python
+C
+JavaScript
+
+>>> Newlines and tabs will be very useful in the next two chapters when you
+    start to produce many line of output from just a few lines of code.
+"""
+
+# Striping Whitspace:-
+"""
+>>> favorite_language = 'Python '
+>>> favorite_language
+'Python '
+>>> favorite_language.rstrip()
+'Python'
+>>> favorite_language
+'Python '
+
+T0 insure that no whitespace exists at the right end of a string, use the
+rstrip() method.
+"""
+"""
+>>> favorite_language = 'Python '
+>>> favorite_language = favorite_language.rstrip()
+>>> favorite_language
+'Python'
+>>> favorite_language = ' python '
+>>> favorite_language.rstrip()
+' python'
+>>> favorite_language.lstrip()
+'python '
+>>> favorite_language.strip()
+'python'
+
+When you use lstrip() to remove whitespace from left side
+When you use rstrip() to remove whitespace from right side
+When you use strip() to remove whitespace from both side
+"""
