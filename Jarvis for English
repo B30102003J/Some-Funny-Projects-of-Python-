@@ -1,0 +1,156 @@
+from distutils.spawn import spawn
+import pyttsx3
+import speech_recognition as sr
+
+Assist = pyttsx3.init('sapi5')
+voices = Assist.getProperty('voices')
+Assist.setProperty('voice', voices[0].id)
+Assist.setProperty('rate', 180)
+
+def speaki(audio):
+    print("   ")
+    Assist.say(audio)
+    print(f": {audio}")
+    Assist.runAndWait()
+
+def takecommand():
+    command = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listening...")
+        speaki('listening...')
+        command.pause_threshold = 1
+        audio = command.listen(source)
+
+        try:
+            print("Recognizing...")
+            query = command.recognize_google(audio, language='en-in')
+            print(f"You said : {query}")
+
+        except:
+            return "none"
+        return query.lower()
+def TalkExe():
+    def English():
+        e = takecommand()
+        if 'hello' in e:
+            speaki("Hello, how are you!")
+        
+        elif 'hello there' in e:
+            speaki("Good to see you!")
+
+        elif 'i am fine':
+            speaki("I am also.")
+
+    
+        elif 'good morning' in e:
+            speaki("Good Morning!")
+            speaki("Today's day is very pretty.")
+
+        elif 'yes':
+            speaki("We both have the same thinking.")
+
+        elif 'i am sad today' in e:
+            speaki("Why! What happen!")
+
+        elif 'where you live':
+            speaki("I am in your desktop!")
+
+        elif 'can i help you' in e:
+            speaki("I'm glad you asked!")
+
+        elif 'would you like some food or drink':
+            speaki("Yes I would, thank you!")
+
+        elif 'do you want to talk ' in e:
+            speaki("Not Right now!")
+
+        elif 'can i ask you a question':
+            speaki("what is it!")
+
+        elif 'may i please see that' in e:
+            speaki("Yes you can!")
+
+        elif 'how can i do this':
+            speaki("I'll will show you!")
+
+        elif 'good job' in e:
+            speaki("I appreciate you!")
+
+        elif 'well done':
+            speaki("I appreciate you!")
+        
+        elif 'that was excellent' in e:
+            speaki("Well, thanks for encouragement!")
+
+        elif 'you made a fine choice' in e:
+            speaki("Thanks, I love it!")
+
+        elif 'please tell me how to do it' in e:
+            speaki("I'll start with the first step!")
+
+        elif 'i would like that one' in e:
+            speaki("Sure, I'm happy to help")
+
+        elif 'that is enough for me now' in e:
+            speaki("If you say so!")
+
+        elif 'thank you' in e:
+            speaki("You are welcome")
+
+        elif 'excuse me' in e:
+            speaki("Oh, no problem at all!")
+
+        elif 'i am soryy' or 'i apologize' in e:
+            speaki("Thanks for apologizing.")
+
+        elif 'good bye' in e:
+            speaki("Goodbye for now!")
+            exit()
+
+        elif 'hope to talk soon':
+            speaki("so long")
+
+        elif 'see you later' in e:
+            speaki("Please, stay in touch!")
+
+        elif 'what do you do':
+            speaki("Nowdays, I am imporving your english conversation.")
+
+        elif 'Are you married' in e:
+            speaki("No, not yet!")
+
+        elif '':
+            speaki("I am also.")
+
+        elif 'Hello' in e:
+            speaki("Hello, how are you!")
+
+        elif 'i am fine.':
+            speaki("I am also.")
+
+        elif 'Hello' in e:
+            speaki("Hello, how are you!")
+
+        elif 'i am fine.':
+            speaki("I am also.")
+
+        elif 'Hello' in e:
+            speaki("Hello, how are you!")
+
+        elif 'i am fine.':
+            speaki("I am also.")
+
+        elif 'Hello' in e:
+            speaki("Hello, how are you!")
+
+        elif 'i am fine.':
+            speaki("I am also.")
+
+        elif 'Hello' in e:
+            speaki("Hello, how are you!")
+
+        elif 'i am fine.':
+            speaki("I am also.")
+
+        
+TalkExe()
