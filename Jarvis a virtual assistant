@@ -1,0 +1,723 @@
+import pyttsx3
+import speech_recognition as sr
+import webbrowser
+import pywhatkit
+import wikipedia
+from googletrans import Translator
+import os
+import pyautogui
+# import psutil
+from tkinter import Label
+from tkinter import Entry
+from tkinter import Button
+from tkinter import Tk
+from tkinter import StringVar
+from pytube import YouTube
+import datetime
+from playsound import playsound
+import keyboard
+import pyjokes
+# from PyDictionary import PyDictionary as Diction
+
+
+Assistance = pyttsx3.init('sapi5')
+voices = Assistance.getProperty('voices')
+Assistance.setProperty('voice', voices[0].id)
+Assistance.setProperty('rate', 180)
+
+
+def speak(audio):
+    print("    ")
+    Assistance.say(audio)
+    print(f": {audio}")
+    print("    ")
+    Assistance.runAndWait()
+
+
+def takecommand():
+    command = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listening...")
+        command.pause_threshold = 1
+        audio = command.listen(source)
+
+        try:
+            print("Recognizing...")
+            query = command.recognize_google(audio, language='en-in')
+            print(f"You said : {query}")
+
+        except:
+            return "none"
+        return query.lower()
+
+def Taskexe():
+    def whatsapp():
+        speak("Tell me the Name of the Person!")
+        name = takecommand()
+        if 'nikhil' in name:
+            speak("Tell me the message sir!")
+            msg = takecommand()
+            speak("Tell me Time Sir!")
+            speak("Time in hour!")
+            hour = int(takecommand())
+            speak("Time in minutes!")
+            min = int(takecommand())
+            pywhatkit.sendwhatmsg("+917470446634", msg, hour, min, 20)
+            speak("Ok Sir, Sending whatsapp message!")
+            keyboard.press('enter')
+
+        else:
+            speak("Tell me the message sir!")
+            msg = takecommand()
+            speak("Tell me the number!")
+            phone = takecommand()
+            ph = (f"+91{phone}")  # number ko one by one bolo like these 7(seven) 4(four) 3(three) 2(two)
+            speak("Tell me Time Sir!")
+            speak("Time in hour!")
+            hour = int(takecommand())
+            speak("Time in minutes!")
+            min = int(takecommand())
+            pywhatkit.sendwhatmsg(ph, msg, hour, min, 20)
+            speak("Ok Sir, Sending whatsapp message!")
+            
+    
+    def Task():
+        speak("I am do some task of your desktop, according to your commands")
+        speak("In my under having youtube automation, google chrome automation, desktop mode,\
+        tool box, dictionary, songs and many more.")
+    
+    def Music():
+        speak("tell me the name of song!")
+        music_name = takecommand()
+        if 'Tora' in query:
+            os.startfile("H:\\music\\songs\\Tora.mp3")
+        
+        elif music_name in query:
+            os.startfile("H:\\music\\songs\\")
+        else:
+            pywhatkit.playonyt(music_name)
+            speak("Your song has been started!, Enjoy sir!")
+
+    def closeApps():
+        speak("Ok sir, wait a second")
+        if 'chrome' in query:
+            os.system("TASKKILL /f /Im chrome.exe")
+        elif 'code' in query:
+            os.system("TASKKILL /f /Im code.exe")
+        elif 'map' in query:    # ye chal nhi rha he
+            os.system("TASKKILL /f /Im map.exe")
+        elif 'youtube' in query: #ye bhi
+            os.system("TASKKILL /f /Im youtube.exe")
+        elif 'Microsoft edge' in query:
+            os.system("TASKKILL /f /Im msedge.exe")
+
+    def Youtubeauto():
+        speak("Youtube automation is activated...")
+        speak("What's your command")
+        comm = takecommand()
+
+        if 'pause' in comm:
+            keyboard.press('space bar')
+
+        elif 'restart' in comm:
+            keyboard.press('0')
+
+        elif 'mute' in comm:
+            keyboard.press('m')
+
+        elif 'skip' in comm:
+            keyboard.press('l')
+
+        elif 'back' in comm:
+            keyboard.press('j')
+
+        elif 'full screen' in comm:
+            keyboard.press('f')
+
+        elif 'film mode' in comm:
+            keyboard.press('t')
+
+        speak("Ok sir.")
+
+    def TakeHind():
+        speak("Hindi input is activated...")
+        command = sr.Recognizer()
+        with sr.Microphone() as source:
+            print("Listening...")
+            command.pause_threshold = 1
+            audio = command.listen(source)
+
+            try:
+                print("Recognizing...")
+                query = command.recognize_google(audio, language='hi')
+                print(f"You said : {query}")
+
+            except:
+                return "none"
+            return query.lower()
+    
+    def ToolBox():
+        speak("Tool Box is activated")
+        speak("What's your command")
+        comes = takecommand()
+        if 'small all window' in comes:
+            speak("Ok Sir!")
+            keyboard.press_and_release('win + m')
+        
+        elif 'restore all window' in comes:
+            speak("Ok Sir!")
+            keyboard.press_and_release('win + shift + m')
+        
+        elif 'full window' in comes:
+            speak("Ok Sir!")
+            keyboard.press_and_release('win + up')
+        
+        elif 'small window' in comes:
+            speak("Ok Sir!")
+            keyboard.press_and_release('win + down')
+        
+        elif 'close tab' in comes: # it close any tab such as chrome tab, vs code tab or file, edge tab etc.
+            speak("Ok Sir!")
+            keyboard.press_and_release('ctrl + space bar + w')
+        
+        elif 'notification' in comes:
+            speak("Ok Sir!")
+            keyboard.press_and_release('win + a')
+        
+        elif 'lock screen' in comes:
+            speak("Ok Sir!")
+            keyboard.press_and_release('win + l')
+        
+        elif 'search panel' in query:
+            keyboard.press_and_release('win + x')
+            keyboard.press('s')
+
+        elif 'setting' in query:
+            keyboard.press_and_release('win + x')
+            keyboard.press('n')
+
+        elif 'desktop' in query:
+            keyboard.press_and_release('win + x')
+            keyboard.press('d')
+    
+    def DeskTop():
+        speak("Desktop mode is activated...")
+        speak("What's your command")
+        come = takecommand()
+        if 'change the tab' in come:
+            speak("Ok Sir!")
+            keyboard.press_and_release('alt + tab')
+
+        elif 'new desktop' in come:
+            speak("Ok Sir!")
+            keyboard.press_and_release('win + ctrl + d')
+        
+        elif 'change desktop' in come:
+            speak("Ok Sir!")
+            keyboard.press_and_release('win + ctrl + right')
+        
+        elif 'old desktop' in come:
+            speak("Ok Sir!")
+            keyboard.press_and_release('win + ctrl + left')
+        
+        elif 'close virtual desktop' in come:
+            speak("Ok Sir!")
+            keyboard.press_and_release('win + ctrl + F4')
+
+    def Tran():
+        speak("Translation is activated...")
+        speak("Tell me the line!")
+        line = TakeHind()
+        tranlate = Translator
+        result = tranlate.translate(line)
+        Text = result.text
+        speak("The Translation for this line is" + Text)
+
+    # def Dict():
+    #     speak("Dictionary is Activated sir.")
+    #     speak("tell me the word ")
+    #     probl = takecommand()
+    #     if "meaning" in probl:
+    #         probl = probl.replace("What is the", "")
+    #         probl = probl.replace("Jarvis", "")
+    #         probl = probl.replace("of", "")
+    #         probl = probl.replace("meaning of", "")
+    #         results = Diction.meaning(probl)
+    #         speak(f"the meaning for {probl} is {results}")
+
+    #     elif 'synonym' in probl:
+    #         probl = probl.replace("What is the", "")
+    #         probl = probl.replace("Jarvis", "")
+    #         probl = probl.replace("of", "")
+    #         probl = probl.replace("synonym of", "")
+    #         result_1 = Diction.synonym(probl)
+    #         speak(f"the synonym for {probl} is {result_1}")
+
+    #     elif 'antonym' in probl:
+    #         probl = probl.replace("What is the", "")
+    #         probl = probl.replace("Jarvis", "")
+    #         probl = probl.replace("of", "")
+    #         probl = probl.replace("antonym of", "")
+    #         result_2 = Diction.antonym(probl)
+    #         speak(f"the antonym for {probl} is {result_2}")
+
+    #     speak("Exited Dictionary")
+
+    def ChromeAuto():
+        speak("Chrome Automation is activated...")
+        command = takecommand()
+
+        if 'close this tab' in command:
+            keyboard.press_and_release('ctrl + w')
+
+        elif 'open new tab' in command:
+            keyboard.press_and_release('ctrl + t')
+
+        elif 'open new window' in command:
+            keyboard.press_and_release('ctrl + n')
+
+        elif 'show history' in command:
+            keyboard.press_and_release('ctrl + h')
+        
+    def wishMe():
+        hour = int(datetime.datetime.now().hour)
+        if hour>= 0 and hour< 12:
+            speak("Good Morning!")
+        elif hour >=12 and hour <18:
+            speak("Good Afternoon!")
+        else:
+            speak("Good Evening!")
+        speak("Hello sir, May I help you!")
+
+    def Screenshot():
+        speak("Ok boss, What should I name that file.")
+        path = takecommand()
+        path1name = path + ".png"
+        path1 = "C:\\Users\\hp\\Pictures\\Screenshots" + path1name
+        kk = pyautogui.screenshot()
+        kk.save(path1)
+        os.startfile("C:\\Users\\hp\\Pictures\\Screenshots")
+        speak("Here is your screenshot.")
+
+    def OpenApps():
+        speak("Ok sir, wait a second!")
+
+        if 'code' in query:
+            os.startfile("C:\\code\\Code.exe")
+        
+        elif 'chrome' in query:
+            os.startfile("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe")
+        
+        elif 'spotify' in query:
+            os.startfile("C:\\Users\\hp\\AppData\\Roaming\\Spotify\\Spotify.exe")
+        
+        elif 'whatsapp web' in query:
+            webbrowser.open("https://web.whatsapp.com/")
+        
+        elif 'map' in query:
+            webbrowser.open("https://www.google.co.in/maps/@22.7278997,75.8341455,16z?hl=en&authuser=0")
+        
+        elif 'youtube' in query:
+            webbrowser.open("https://www.youtube.com/")
+        
+        elif 'microsoft edge' in query:
+            keyboard.press_and_release('ctrl + alt + e')
+        
+        elif 'my files' in query:
+            keyboard.press_and_release('win + e')
+        
+        speak("Your command has been completed succesfully.")
+    
+    def Spotifyauto():
+        speak("Spotify automation is activated!")
+        speak("What's your command!")
+        sp = takecommand()
+        speak("Ok Sir!")
+
+        if 'search' in sp:
+            keyboard.press_and_release('ctrl + l')
+        
+        elif 'repeat' in sp:
+            keyboard.press_and_release('ctrl + r')
+
+        elif 'next' in sp:
+            keyboard.press_and_release('ctrl + right arrow')
+        
+        elif 'previous' in sp:
+            keyboard.press_and_release('ctrl + left arrow')
+        
+        elif 'volume up' in sp:
+            keyboard.press_and_release('shift + up arrow')
+        
+        elif 'volume down' in sp:
+            keyboard.press_and_release('shift + down arrow')
+    def SecondaryMenu():
+
+        speak("Secondry menu is opening..")
+        keyboard.press_and_release('win + x')
+        speak("What's your command!")
+        gh = takecommand()
+
+        if 'shutdown' in gh: # experiment kero 1st win +x press kero fir speak kerao fir shutdown
+            keyboard.press('u')
+            keyboard.press('u')
+        
+        elif 'app and feature' in gh:
+            keyboard.press('f')
+        
+        elif 'power option' in gh:
+            keyboard.press('o')
+    
+        elif 'system' in gh:
+            keyboard.press('y')
+        
+        elif 'network connection' in gh:
+            keyboard.press('w')
+
+        elif 'window powershell' in gh:
+            keyboard.press('i')
+
+        elif 'admin powershell' in gh:
+            keyboard.press('a')
+        
+        elif 'start menu' in gh:
+            speak("Ok Sir!")
+            keyboard.press('win')
+
+
+    wishMe()
+
+    while True:
+        query = takecommand()
+        if 'hello' in query:
+            speak("Hello sir, I am jarvis .")
+            speak("Your personal Virtual Assistant!")
+            speak("How may I help you")
+        
+        elif 'time' in query:
+            strTime = datetime.datetime.now().strftime("%H:%M:%S")
+            speak(f"Sir, the time is {strTime}")
+        
+
+        elif 'how are you' in query:
+            speak("I Am Fine Sir!")
+            speak("What's about you?")
+
+        elif 'you need a break' in query:
+            speak("Ok sir, You can call me anytime !")
+
+        
+        elif 'hide open apps' in query: # show or hide open apps on desktop
+            speak("Ok Sir!")
+            keyboard.press_and_release('win + d')
+        
+        elif 'show open apps' in query: # show or hide open apps on desktop
+            speak("Ok Sir!")
+            keyboard.press_and_release('win + d')
+        
+        elif 'close window' in query: 
+            speak("Ok Sir!")
+            keyboard.press_and_release('alt + F4')
+        
+        elif 'refresh' in query:
+            speak("Ok Sir!")
+            keyboard.press('F5')
+        
+        elif 'small calendar' in query:
+            speak("Ok Sir!")
+            keyboard.press_and_release('alt + win + d')
+        
+        elif 'close tab' in query: # it close any tab such as chrome tab, vs code tab or file, edge tab etc.
+            speak("Ok Sir!")
+            keyboard.press_and_release('ctrl + space bar + w')
+        
+        elif 'search window' in query:
+            speak("Ok Sir!")
+            keyboard.press_and_release('win + q')
+        
+        elif 'setting menu' in query:
+            speak("Ok Sir!")
+            keyboard.press_and_release('win + i')
+        
+        elif 'close by' in query:# ise bahar nikalo
+            speak("Ok Sir!")
+            keyboard.press('esc')
+        
+        elif 'find' in query:
+            speak("Ok Sir!")
+            keyboard.press_and_release('ctrl + f')
+
+        elif 'Youtube' in query:
+            speak("Ok Sir, What I Found For your Search!")
+            query = query.replace("jarvis", "")
+            query = query.replace("Youtube search", "")
+            web = "https://www.youtube.com/results/search_query=" + query
+            webbrowser.open(web)
+            speak("Done Sir!")
+
+        elif 'enter' in query:
+            speak("Ok sir")
+            keyboard.press('enter')
+        
+        elif 'game one' in query:
+            speak("Ok Sir!")
+            os.startfile("D:\\")
+        
+        elif 'google search' in query:
+            speak("This is what I found for your search sir!")
+            query = query.replace("jarvis", "")
+            query = query.replace("google search", "")
+            pywhatkit.search(query)
+            speak("Done Sir!")
+
+        elif 'website' in query:
+            speak("Ok sir, Launching...")
+            query = query.replace("jarvis", "")
+            query = query.replace("website", "")
+            query = query.replace(" ", "")
+            web1 = query.replace("open", "")
+            web2 = "https://www." + web1 + '.com'
+            webbrowser.open(web2)
+            speak("Launched...")
+
+        elif 'launch' in query:
+            speak("Tell me the name of the website!")
+            name = takecommand()
+            web = 'https://www.' + name + '.com'
+            webbrowser.open(web)
+            speak("Done Sir!")
+
+        elif 'music ' in query:
+            Music()
+
+        elif 'wikipedia' in query:
+            speak("Searching wikipedia...")
+            query = query.replace("jarvis", "")
+            query = query.replace("wikipedia", "")
+            wiki = wikipedia.summary(query, 2)
+            speak(f"According To Wikipedia : {wiki}")
+
+        elif 'whatsapp message' in query:
+            whatsapp()
+
+        elif 'screenshot' in query:
+            Screenshot()
+
+        elif 'open code' in query:
+            OpenApps()
+
+        elif 'open chrome' in query:
+            OpenApps()
+
+        elif 'open whatsapp web' in query:
+            OpenApps()
+
+        elif 'open youtube' in query:
+            OpenApps()
+         
+        elif 'open Microsoft edge' in query:
+            OpenApps()
+
+        elif 'open map' in query:
+            OpenApps()
+        
+        elif 'open my files' in query:
+            OpenApps()
+        
+        elif 'open spotify' in query:
+            OpenApps()
+
+        elif 'close youtube' in query:
+            closeApps()
+
+        elif 'close whatsapp' in query:
+            closeApps()
+
+        elif 'close chrome' in query:
+            closeApps()
+
+        elif 'close map' in query:
+            closeApps()
+        
+        elif 'close Microsoft egde' in query:
+            closeApps()
+
+        elif 'close code' in query:
+            closeApps()
+
+        elif 'pause' in query:
+            speak("Ok Sir!")
+            keyboard.press('space bar')
+
+        elif 'restart' in query:
+            speak("Ok Sir!")
+            keyboard.press('0')
+
+        elif 'mute' in query:
+            speak("Ok Sir!")
+            keyboard.press('m')
+
+        elif 'skip' in query:
+            speak("Ok Sir!")
+            keyboard.press('l')
+
+        elif 'back' in query:
+            speak("Ok Sir!")
+            keyboard.press('j')
+
+        elif 'full screen' in query:
+            speak("Ok Sir!")
+            keyboard.press('f')
+
+        elif 'film mode' in query:
+            speak("Ok Sir!")
+            keyboard.press('t')
+        
+        elif 'change the tab' in query:
+            speak("Ok Sir!")
+            keyboard.press_and_release('alt + tab')
+        
+        elif 'desktop' in query:
+            DeskTop()
+
+        elif 'youtube automation' in query:
+            Youtubeauto()
+
+        elif 'close this tab' in query:
+            keyboard.press_and_release('ctrl + w')
+
+        elif 'open new tab' in query:
+            keyboard.press_and_release('ctrl + t')
+
+        elif 'open new window' in query:
+            keyboard.press_and_release('ctrl + n')
+
+        elif 'show history' in query:
+            keyboard.press_and_release('ctrl + h')
+        
+        elif 'restore tab' in query:
+            keyboard.press_and_release('ctrl + shift + t')
+
+        elif 'chrome automation' in query:
+            ChromeAuto()
+        
+        elif 'spotify automation' in query:
+            Spotifyauto()
+
+        elif 'joke' in query:
+            get = pyjokes.get_jokes()
+            speak(get)
+        
+        elif 'close by' in query:
+            speak("Ok Sir!")
+            keyboard.press('esc')
+
+        elif 'repeat my words' in query:
+            speak("Speak sir..")
+            jj = takecommand()
+            speak(f"You said {jj}")
+
+        elif 'my location ' in query:
+            speak("Ok sir, wait a second.")
+            webbrowser.open("https://www.google.co.in/maps/@22.7278997,75.8341455,16z?hl=en&authuser=0")
+
+        # elif 'dictionary ' in query:
+        #     Dict()
+
+        elif 'alarm' in query:
+            speak("Enter the time.")
+            time = int(input(": Enter the time :"))
+
+            while True:
+                Time_Ac = datetime.datetime.now()
+                time = Time_Ac.strftime("%H:%M:%S")
+
+                if Time_Ac == time:
+                    speak("Time to wake up sir.")
+                    playsound('Cap.mp3')
+                    speak("Alarm Closed.")
+
+                elif Time_Ac > time:
+                    break
+
+        elif "video downloader" in query:
+            root = Tk()
+            root.geometry('500x300')
+            root.resizable(0, 0)
+            root.title("Youtube Video Downloader")
+            speak("Enter video url here !")
+            Label(root, text="Youtube Video Downloader", font='arial 15 bold').pack()
+            link = StringVar
+            Label(root, text="Paste Yt Video URL Here", font='arial 15 bold').place(x=160, y=60)
+            Entry(root, width=70, textvariable=link).place(x=32, y=90)
+
+            def VideoDownloader():
+                url = YouTube(str(link.get()))
+                video = url.streams.first()
+                video.download()
+                Label(root, text="Downloaded", font="arial 15").place(x=180, y=210)
+
+            Button(root, text="Download", font="arial 15 bold", bg='pale violet red', padx=2,
+                   command=VideoDownloader).place(x=180, y=150)
+
+            root.mainloop()
+            speak("Video Downloaded")
+
+        elif "translator" in query:
+            Tran()
+
+        elif "remember that " in query:
+            remeberMsg = query.replace("remember that", "")
+            remeberMsg = query.replace("jarvis", "")
+            speak("You tell me to remind me that :" +remeberMsg)
+            remember = open('data.txt', 'w')
+            remember.write(remeberMsg)
+            remember.close()
+
+        elif "what do you remember" in query:
+            remember = open('data.txt', 'r')
+            speak("You tell me that " +remember.read())
+        
+        elif "thank you Jarvis" in query:
+            speak("welcome Sir, It's only my work.")
+        
+        elif "google search" in query:
+            import wikipedia as googlescrap
+            query = query.replace("jarvis", "")
+            query = query.replace("google search", "")
+            query = query.replace("google", "")
+            speak("This is what I found on the web")
+
+            try:
+                pywhatkit.search(query)
+                result = googlescrap.summary(query, 3)
+                speak(result)
+
+            except:
+                speak("No speakable data Available")
+        
+        elif 'tool box' in query:
+            ToolBox()
+        
+        elif 'what task can you do' in query:
+            Task()
+        
+        elif 'secondary menu' in query:
+            SecondaryMenu()
+        
+        elif 'laptop ko shutdown' in query:
+            speak("Ok Sir!")
+            keyboard.press_and_release('win + x')
+            speak("See you Soon, Sir!")
+            keyboard.press('u')
+            keyboard.press('u')
+        
+        elif 'bye' in query:
+            speak("Bye sir, take care.")
+            exit()
+        
+        elif 'have a good day' in query:
+            speak('Bye Sir, see you soon')
+            keyboard.press_and_release('alt + F4')
+
+Taskexe()
