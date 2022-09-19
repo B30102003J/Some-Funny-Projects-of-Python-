@@ -1,0 +1,42 @@
+def get_formula_s(tan_A, tan_B):
+    A_B = f"{tan_A + tan_B / 1 - (tan_A * tan_B)}"
+    return A_B
+def get_formula_(tan_A, tan_B):
+    C_D = f"{tan_A - tan_B / 1 + (tan_A * tan_B)}"
+    return C_D
+def get_formula(cot_A, cot_B):
+    A_D = f"{(cot_A * cot_B) - 1 / cot_A + cot_B}"
+    return A_D
+def get_formul(cot_A, cot_B):
+    B_C = f"{(cot_A * cot_B) + 1 / cot_A - cot_B}"
+    return B_C
+s2 = input("Enter your name:- ")
+print("If you enter the value of tan_A, tan_B, cot_A, cot_B, "
+      "\nthen you get answer in tan(A+B), tan(A-B), cot(A+B), cot(A-B).")
+while True:
+    print("\nEnter 0.0 at any time to quit.")
+
+    A = float(input("Enter the value of tan_A:- "))
+    if A == 0.0:
+        print(f"Thank You {s2} for using this program.")
+        break
+
+    A_ = float(input("Enter the value of cot_A:- "))
+    if A_ == 0.0:
+        print(f"Thank You {s2} for using this program.")
+        break
+
+    B = float(input("Enter the value of tan_B:- "))
+    if B == 0.0:
+        print(f"Thank You {s2} for using this program.")
+        break
+
+    B_ = float(input("Enter the value of cot_B:- "))
+    if B_ == 0.0:
+        print(f"Thank You {s2} for using this program.")
+        break
+
+    print(f"tan(A+B) = {get_formula_s(A, B)}")
+    print(f"tan(A-B) = {get_formula_(A, B)}")
+    print(f"cot(A+B) = {get_formula(A_, B_)}")
+    print(f"cot(A-B) = {get_formul(A_, B_)}")
