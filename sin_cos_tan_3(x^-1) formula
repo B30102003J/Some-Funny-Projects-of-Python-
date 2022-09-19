@@ -1,0 +1,26 @@
+def get_inverse_formula(x):
+    """Display 3sin(inv)x formula"""
+    A_inverse = f"{3 * x - 4 * x ** 3}"
+    return A_inverse
+def get_inverse_formula_(x):
+    """Display 3cos(inv)x formula"""
+    A__inverse = f"{4 * x ** 3 - 3 * x}"
+    return A__inverse
+def get_inverse_formula_s(x):
+    """Display 3tan(inv)x formula"""
+    A___inverse = f"{3 * x - x ** 3 / 1 - 3 * x ** 2}"
+    return A___inverse
+
+print("If you entered the value of x then you get answer in \n3sin(inverse)x, \n3cos(inverse)x, \n3tan(inverse)x")
+j1 = input("\nEnter Your Good Name:- ")
+
+while True:
+    print("\nEnter 0.0 at any time to quit.")
+    A_ = float(input("Enter the value of x :- "))
+    if A_ == 0.0:
+        print(f"Thank you {j1} for use this program.")
+        break
+
+    print(f"\n3sin(inv)x = {get_inverse_formula(A_)}")
+    print(f"\n3cos(inv)x = {get_inverse_formula_(A_)}")
+    print(f"\n3tan(inv)x = {get_inverse_formula_s(A_)}")
