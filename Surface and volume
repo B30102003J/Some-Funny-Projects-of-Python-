@@ -1,0 +1,25 @@
+def get_new_area(r):
+    """ Display formula of (Area of circle)"""
+    A_A = f"{22 / 7 * r ** 2}"
+    return A_A
+def get_new_volume(r):
+    """Display formula of (Volume of sphere)"""
+    A_B = f"{4.0 / 3.0 * 22 / 7 * r ** 3}"
+    return A_B
+def get_new_circumference(r):
+    """Display formula of (Circumference of circle)"""
+    A_C = f"{2 * 22 / 7 * r}"
+    return A_C
+print("If you entered the value of radius (r) then,"
+      "\nyou will get answer in formula of Area of circle, Circumference of circle and volume of sphere")
+s1 = input("Enter Your Name: ")
+while True:
+    print("\nEnter 0.0 at any time to quit.")
+    A_ = float(input("\nEnter the value of radius (r):- "))
+    if A_ == 0.0:
+        print(f"Thank you {s1} for use this program.")
+        break
+
+    print(f"\nArea of circle = {get_new_area(A_)}")
+    print(f"\nVolume of sphere = {get_new_volume(A_)}")
+    print(f"\nCircumference of circle = {get_new_circumference(A_)}")
