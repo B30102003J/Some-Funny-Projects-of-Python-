@@ -1,0 +1,42 @@
+def get_formula_s(sin_A, cos_B, cos_A, sin_B):
+    A_B = f"{sin_A * cos_B + cos_A * sin_B}"
+    return A_B
+def get_formula_(sin_A, cos_B, cos_A, sin_B):
+    C_D = f"{cos_A * cos_B - sin_A * sin_B}"
+    return C_D
+def get_formula(sin_A, cos_B, cos_A, sin_B):
+    D_A = f"{sin_A * cos_B - cos_A * sin_B}"
+    return D_A
+def get_formul(sin_A, cos_B, cos_A, sin_B):
+    B_C = f"{cos_A * cos_B + sin_A * sin_B}"
+    return B_C
+n1 = input("Enter your name:- ")
+print("If you enter the value of sin_A, cos_B, cos_A, sin_B,"
+      "\nthen you get answer in  sin(A+B), cos(A+B), sin(A-B), cos(A-B):-")
+while True:
+    print("\nEnter 0.0 at any time to quit")
+
+    A = float(input("Enter value of sin_A:- "))
+    if A == 0.0:
+        print(f"\nThank you {n1} for using this program.")
+        break
+
+    A_ = float(input("Enter value of cos_A:- "))
+    if A_ == 0.0:
+        print(f"\nThank you {n1} for using this program.")
+        break
+
+    B = float(input("Enter value of sin_B:- "))
+    if B == 0.0:
+        print(f"\nThank you {n1} for using this program.")
+        break
+
+    B_ = float(input("Enter value of cos_B:- "))
+    if B_ == 0.0:
+        print(f"\nThank you {n1} for using this program.")
+        break
+
+    print(f"\nsin(A+B) = {get_formula_s(A, B_, A_, B)}")
+    print(f"cos(A+B) = {get_formula_(A_, B_, A, B)}")
+    print(f"sin(A-B) = {get_formula(A, B_, A_, B)}")
+    print(f"cos(A-B) = {get_formul(A_, B_, A, B)}")
