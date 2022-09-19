@@ -1,0 +1,10 @@
+print("Please Enter num1")
+num1 = input()
+print("Please Enter num2")
+num2 = input()
+
+try:
+    print("The sum of these two numbers is ", int(num2) + int(num2))
+except Exception as e:
+    print(e)
+print("These CODE is very important") # bhai "ctrl + /" se # (comment) lag jata he
