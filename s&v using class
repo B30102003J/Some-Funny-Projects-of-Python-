@@ -1,0 +1,36 @@
+class Formula:
+    """ A simple exercise attempt to model a Formula."""
+
+    def __init__(self, r):
+        """Initialize r = radius attribute"""
+        self.r = r
+
+    def new_Area(self):
+        """Simulate a 'r' Area in response to a command."""
+        print(f"{22 / 7 * self.r ** 2}")
+
+    def new_Volume(self):
+        """Simulate a 'r' Volume in response to a command."""
+        print(f"{4.0 / 3.0 * 22 / 7 * self.r ** 3}")
+
+    def new_Circumference(self):
+        """Simulate a 'r' Circumference in response to a command."""
+        print(f"{2 * 22 / 7 * self.r ** 2}")
+# my_formula = Formula(2)
+# my_formula.new_Area()
+print("If you entered the value of radius (r) then,"
+      "\nyou will get answer in formula of Area of circle, Circumference of circle and volume of sphere")
+n1 = input("Enter Your Good Name: ")
+while True:
+    s1 = float(input("\nEnter 0.0 at any time to quit."
+                     "\nEnter the value of r: "))
+    if s1 == 0.0:
+        print(f"Thank you {n1} for use this program.")
+        break
+
+    Formula(s1)
+    print(f"\nArea of Circle:"), Formula(s1).new_Area()
+    print(f"\nVolume of Sphere:"), Formula(s1).new_Volume()
+    print(f"\nCircumference of Circle:"), Formula(s1).new_Circumference()
+# import surface_and_volume as f
+# print(f)
