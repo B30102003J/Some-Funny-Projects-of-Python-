@@ -1,0 +1,99 @@
+# UNIT CONVERSIONS
+print(f"Our calculator are convert following units:- "
+      f"\n inch to cm for press 1"
+      f"\n cm to inch for press 2"
+      f"\n feet to m for press 3"
+      f"\n m to yd for press 4"
+      f"\n yd to m for press 5"
+      f"\n m to ft for press 6"
+      f"\n mile to km for press 7"
+      f"\n km to mile for press 8"
+      f"\n acre to m^2 for press 9"
+      f"\n m^2 to acre for press 10")
+def Inch_to_cm(value):
+    """Display inch to centimeter"""
+    inch_cm= f"{value * 2.54} cm"
+    return inch_cm
+
+def Cm_to_inch(value):
+    """Display centimeter to inch"""
+    cm_inch = f"{value / 1.54} inch"
+    return cm_inch
+
+def Feet_to_meter(value):
+    """Display feet to meter"""
+    feet_meter = f"{value / 3.218} meter"
+    return feet_meter
+
+def Meter_to_yard(value):
+    """Display Meter to yard"""
+    meter_yard = f"{value * 1.094} yard"
+    return meter_yard
+
+def Yard_to_meter(value):
+    """Display yard to meter"""
+    yard_meter = f"{value / 1.094} meter"
+    return yard_meter
+
+def Meter_to_feet(value):
+    """Display meter to feet"""
+    meter_feet = f"{value * 3.281} feet"
+    return meter_feet
+
+def Mile_to_km(value):
+    """Display mile to kilometer"""
+    mile_km = f"{value * 1.609} km"
+    return mile_km
+
+def Km_to_Mile(value):
+    """Display kilometer to mile"""
+    km_mile = f"{value / 0.621} mile"
+    return km_mile
+
+def Acre_to_meterSquare(value):
+    """Display acre to meterSquare"""
+    acre_mSquare = f"{value * 4047} m^2 or square meters"
+    return acre_mSquare
+
+def MeterSq_to_acre(value):
+    """Display meterSq to acre"""
+    meterSq_acre = f"{value / 4047} acre"
+    return meterSq_acre
+
+co = int(input("\nEnter above following numbers which unit are convert you: "))
+value = float(input("Enter value: "))
+
+while True:
+    if co == 0 and value == 0:
+        exit()
+    
+    if co == 1:
+        print(f"You choose inch to cm:- \n\t {Inch_to_cm(value)}")
+    
+    elif co == 2:
+        print(f"You choose cm to inch:-\n\t{Cm_to_inch(value)}")
+    
+    elif co == 3:
+        print(f"You choose feet to meter:-\n\t{value}")
+    
+    elif co == 4:
+        print(f"You choose meter to yard:-\n\t{value}")
+    
+    elif co == 5:
+        print(f"You choose yard to meter:-\n\t{value}")
+    
+    elif co == 6:
+        print(f"You choose meter to feet:-\n\t{value}")
+    
+    elif co == 7:
+        print(f"You choose mile to kilometer:-\n\t{value}")
+    
+    elif co == 8:
+        print(f"You choose kilometer to mile:- \n\t{value}")
+    
+    elif co == 9:
+        print(f"You choose acre to m^2 or meter-square:-\n\t{value}")
+    
+    elif co == 10:
+        print(f"You choose m^2 or meter-square to acre:-\n\t{value}")
+    break
