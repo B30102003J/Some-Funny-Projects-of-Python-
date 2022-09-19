@@ -1,0 +1,67 @@
+#operators in python
+
+#Arithmetic operators
+print("5+6 is ", 5+6)
+print("5*6 is ", 5*6)
+print("5-6 is ", 5-6)
+print("5/6 is ", 5/6)
+print("5//6 is", 5//6) # It is given that integer value ex. = 15 ko 6 se divide kar do to answer me first no.
+                       # 2 aayega ye use wahi end ker degauske aage point valye nhi dega
+
+print("5**3 is ", 5**3) # Exponential operators 5 ko 3 baar multiply karo
+print("5%3 is", 5%3) # It  is  given  that  REMINDER
+print("5%4 is", 5%4) # REMINDER
+print("5%5 is", 5%5) # REMINDER
+
+# ASSIGNMENT OPERATORS
+print("ASSIGNMENT OPERATORS")
+x = 5
+print(x)
+x+=7 # "+=" this is assignment op..
+print(x)
+x/=5
+print(x)
+x%=7
+print(x)
+
+# COMPARISION OPERATORS
+print("COMPARISION OPERATORS")
+i = 8
+print(i==9)
+print(i!=0)
+print(i>9)
+print(i>=8)
+print(i<=6)
+print(5 and 2)
+
+# LOGICAL OPERATORS
+print("LOGICAL OPERATORS")
+a = True
+b = False
+print(a or b)
+print(a or a)
+print(b or b)
+print(b or a, "\n")
+print(a and b)
+print(a and a)
+print(b and b)
+print(b and a, "\n")
+# IDENTITY OPERATORS
+print("IDENTITY OPERATORS")
+print(a is b)
+print(a is not b)
+print(5 is 5)
+print(5 is not 5,"\n")
+# MEMBERSHIP OPERATORS
+print("MEMBERSHIP OPERATORS")
+List = [3, 3,2,2,25,26,28,29,22,222,2546]
+print(26 in List)
+print(2546 not in List)
+# BITWISE OPERATORS
+print("BITWISE OPERATORS")
+#0 =00
+#1 = 01
+#2 = 10
+#3 = 11
+print(0 & 1) # & = and
+print(0 | 3) # | = or
