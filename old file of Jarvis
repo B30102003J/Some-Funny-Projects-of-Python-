@@ -1,0 +1,252 @@
+import pyttsx3
+import datetime
+import speech_recognition as sr
+import wikipedia
+import webbrowser
+import os
+import pyautogui
+import smtplib
+from PyDictionary import PyDictionary as Diction
+engine = pyttsx3.init('sapi5')
+voices = engine.getProperty('voices')
+# print(voices[0].id)
+engine.setProperty('voices', voices[0].id)
+
+def Screenshot():
+        speak("Ok boss, What should I name that file.")
+        path = takecommand()
+        path1name = path +  ".png"
+        path1 = "C:\\Users\\hp\\Pictures\\Screenshots" + path1name
+        kk = pyautogui.screenshot()
+        kk.save(path1)
+        os.startfile("C:\\Users\\hp\\Pictures\\Screenshots")
+        speak("Here is your screenshot.")
+
+def sendEmail(to, content):
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.ehlo()
+    server.starttls()
+    server.login("Youremail@gmail.com", 'your password')
+    server.sendmail('yourEmail@gmail.com',to,content)
+    server.close()
+
+def speak(audio):
+    engine.say(audio)
+    engine.runAndWait()
+
+def wishMe():
+    hour = int(datetime.datetime.now().hour)
+    if hour>= 0 and hour< 12:
+        speak("Good Morning!")
+    elif hour >=12 and hour <18:
+        speak("Good Afternoon!")
+    else:
+        speak("Good Evening!")
+    speak("Hello sir, Can i help you")
+def takecommand():
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listening...")
+        r.pause_threshold = 1
+        audio = r.listen(source)
+    try:
+        print("Recognizing...")
+        query = r.recognize_google(audio, language='en-in')
+        print(f"User said: {query}\n")
+    except Exception as e:
+        # print(e)
+
+        print("Say that again please...")
+        return "None"
+    return query
+
+def OpenApps():
+        speak("Ok sir, wait a second!")
+
+        if 'code' in query:
+            os.startfile("C:\\code\\Code.exe")
+        elif 'chrome' in query:
+            os.startfile("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe")
+        elif 'whatsapp web' in query:
+            webbrowser.open("https://web.whatsapp.com/")
+        elif 'map' in query:
+            webbrowser.open("https://www.google.co.in/maps/@22.7278997,75.8341455,16z?hl=en&authuser=0")
+        elif 'youtube' in query:
+            webbrowser.open("https://www.youtube.com/")
+
+def Dict():
+        speak("Dictionary is Activated sir.")
+        speak("tell me the word ")
+        probl = takecommand()
+        if "meaning" in probl:
+            probl = probl.replace("What is the", "")
+            probl = probl.replace("jarvis","")
+            probl = probl.replace("of")
+            probl = probl.replace("meaning of","")
+            result = Diction.meaning(probl)
+            speak(f"the meaning for {probl} is {result}")
+        
+        elif 'synonym' in probl:
+            probl = probl.replace("What is the", "")
+            probl = probl.replace("jarvis","")
+            probl = probl.replace("of")
+            probl = probl.replace("synonym of","")
+            result = Diction.synonym(probl)
+            speak(f"the synonym for {probl} is {result}")
+        
+        elif 'antonym' in probl:
+            probl = probl.replace("What is the", "")
+            probl = probl.replace("jarvis","")
+            probl = probl.replace("of")
+            probl = probl.replace("antonym of","")
+            result = Diction.antonym(probl)
+            speak(f"the antonym for {probl} is {result}")
+        
+        speak("Exited Dictionary")
+
+
+if __name__ =="__main__":
+    wishMe()
+    while True:
+
+        query = takecommand().lower()
+        # Logic for executing task based on theory
+        if 'wikipedia' in query:
+            speak('Searching wikipedia...')
+            query = query.replace("wikipedia", "")
+            result = wikipedia.summary(query, sentence=2)
+            speak("According to wikipedia")
+            print(result)
+            speak(result)
+        
+        # elif 'open calculator' in query:
+        #     calPath = ""
+        elif 'open youtube' in query:
+            webbrowser.open("youtube.com")
+        
+        elif 'give me your intro' in query:
+            speak("Hello sir, My name is jarvis. I am a virtual assistant of my boss.\
+                        My boss is very creative person and he is my god.\
+                            I am program, typed in python language.")
+        
+        elif 'say about your boss' in query:
+            speak("My boss is make me because he say that,\
+                i am only a person who attach me after his best friend.\
+                    My boss is always say FOLLOW YOUR DREAM\
+                        ")
+        elif 'you need a break' in query:
+            speak("Ok sir, You can call me anytime !")
+        
+        elif 'Youtube' in query:
+            speak("Ok Sir, What I Found For your Search!")
+            query = query.replace("jarvis","")
+            query = query.replace("Youtube search","")
+            web = "https://www.youtube.com/results/search_query=" + query
+            webbrowser.open(web)
+            speak("Done Sir!")
+        
+        elif 'screenshot' in query:
+            Screenshot()
+
+        elif 'open google' in query:
+            webbrowser.open("google.com")
+
+        elif 'thank you jarvis' in query:
+            speak("you are welcome sir")
+
+        elif 'open stackoverflow' in query:
+            webbrowser.open("stackoverflow.com")
+
+        elif 'play music' in query:
+            music_dir = 'H:\\music\\songs'
+            songs = os.listdir(music_dir)
+            print(songs)
+            os.startfile(os.path.join(music_dir, songs[0]))
+
+        elif 'time' in query:
+            strTime = datetime.datetime.now().strftime("%H:%M:%S")
+            speak(f"Sir, the time is {strTime}")
+
+        elif 'open code' in query:
+            codePath = "C:\\code"
+            os.startfile(codePath)
+        
+        elif 'open zoom' in query:
+            zoomPath = "C:\\Users\\hp\\Desktop"
+            os.startfile(zoomPath)
+        
+        # elif "today's whether" in query:
+        
+        elif 'hello jarvis' in query:
+            speak("Hello sir, how are you?")
+        
+        elif 'how are you' in query:
+            speak("I am fine sir, and you")
+        
+        elif 'i am fine' in query:
+            speak("i am also fine sir.")
+
+        elif 'send email to bhavya' in query:
+            try:
+                speak("What should I say?")
+                content = takecommand()
+                to = 'bhavyajadam123@gmail.com'
+                sendEmail(to, content)
+                speak("Email has been sent!")
+            except Exception as e:
+                print(e)
+                speak("Sorry sir, I am not able to send this email.")
+        
+        elif 'send email to dipika' in query:
+            try: 
+                speak("what should I say?")
+                content = takecommand()
+                to = 'dipika di ka email address dalo'
+                sendEmail(to, content)
+                speak("Email has been sent!")
+            except Exception as e: 
+                print(e)
+                speak("Sorry sir, I am not able to send this email.")
+        
+        elif 'send email to nikhil' in query:
+            try:
+                speak("What should I Say?")
+                content = takecommand()
+                to = 'bhai nikhil ka email address dalo'
+                sendEmail(to, content)
+                speak("Email has been sent!")
+            except Exception as e:
+                print(e)
+                speak("Sorry sir, I am not able to send this email.")
+                if 'why' in query:
+                    speak("it is network error")
+        
+        elif 'Jarvis' in query:
+            speak("I am already here Sir, Please speak laudly.")
+        
+        elif 'repeat my words' in query:
+            speak("Speak sir..")
+            jj = takecommand()
+            speak(f"You said {jj}")
+        
+        elif 'dictionary ' in query:
+            Diction()
+        
+        elif 'open code' in query:
+            OpenApps()
+
+        elif 'open chrome' in query:
+            OpenApps()
+
+        elif 'open whatsapp' in query:
+            OpenApps()
+
+        elif 'open youtube' in query:
+            OpenApps()
+        
+        elif 'open map' in query:
+            OpenApps()
+        
+        elif 'bye' in query:
+            speak("Good bye sir")
+            exit()
