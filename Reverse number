@@ -1,0 +1,19 @@
+# Program of reverse number with input()
+
+number = int(input("Enter any number: "))
+reverse = 0
+
+while(number>0):
+    reminder = number % 10
+    reverse = (reverse*10) + reminder
+    number = number//10
+print("\nReverse of entered number is = ", reverse)
+
+
+
+# Program of reverse numbe with string slicing
+
+n = [1, 5, 78, 98, 2, 5, 4, 6]
+
+print("\nReverse order of given list: ")
+print(str((n)[::-1]))
