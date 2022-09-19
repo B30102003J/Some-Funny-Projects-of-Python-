@@ -1,0 +1,20 @@
+# Avoiding syntax Error with strings:- A syntax Error occurs when python doesn't 
+#  recognize a section of your program as valid Python code.
+
+message = "One of Python's strength is its diverse community."
+print(message)
+
+""" The apostrophe appears inside a set of double quotes, so the python interpreter
+    has no trouble reading the string correctly.
+        One of Python's strength is its diverse community.
+"""
+# However you using a single quotes, Python can't identify where the string should end:
+"""
+message = 'One of Python's strength is its diverse community.'
+print(message)
+ # you'll see the following output:
+ # File "apostrophe.py", line 1
+#  message = 'One of Python's strengths is its diverse community.'
+
+# SyntaxError: invalid syntax
+"""
