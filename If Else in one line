@@ -1,0 +1,6 @@
+ # WRITE IF ELSE CONDITION IN ONE LINE
+print("Enter value of A\n")
+A = int(input())
+print("Enter value of B\n")
+B = int(input())
+print("A B se bada he bhai") if A>B else print("B A se bada he bhai")
