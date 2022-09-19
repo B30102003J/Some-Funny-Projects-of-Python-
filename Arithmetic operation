@@ -1,0 +1,51 @@
+""" Arithmetic Calculation"""
+
+operation = input("Enter which operation are you used: ")
+def get_addition(sum_1, sum_2, sum_3, sum_4, sum_5, sum_6, sum_7, sum_8, sum_9, sum_10):
+    """ Display the solution of addition """
+    n1 = f"{sum_1 + sum_2 + sum_3 + sum_4 + sum_5 + sum_6 + sum_7 + sum_8 + sum_9 + sum_10}"
+    if num_1 == num_2 == num_3 == num_4 == num_5 == num_6 == num_7 == num_8 == num_9 == num_10 == "+":
+        return n1
+
+def get_multiplication(mum_1, mum_2, mum_3, mum_4, mum_5, mum_6, mum_7, mum_8, mum_9, mum_10):
+    """ Display the solution of multiplication"""
+    n2 = f"{mum_1 * mum_2 * mum_3 * mum_4 * mum_5 * mum_6 * mum_7 * mum_8 * mum_9 * mum_10}"
+    return n2
+
+def get_division(bum_1, bum_2, bum_3, bum_4, bum_5, bum_6, bum_7, bum_8, bum_9, bum_10):
+    """Display the solution of division"""
+    n3 = f"{bum_1 / bum_2 / bum_3 / bum_4 / bum_5 / bum_6 / bum_7 / bum_8 / bum_9 / bum_10}"
+    return n3
+def get_subtraction(hum_1, hum_2, hum_3, hum_4, hum_5, hum_6, hum_7, hum_8, hum_9, hum_10):
+    """Display the solution of subtraction"""
+    n4 = f"{hum_1 - hum_2 - hum_3 - hum_4 - hum_5 - hum_6 - hum_7 - hum_8 - hum_9 - hum_10}"
+    return n4
+
+def get_percentage(pum_1, pum_2, pum_3, pum_4, pum_5, pum_6, pum_7, pum_8, pum_9, pum_10):
+    """Display the solution of subtraction """
+    n5 = f"{pum_1 % pum_2 % pum_3 % pum_4 % pum_5 % pum_6 % pum_7 % pum_8 % pum_9 % pum_10}"
+    return n5
+
+while True:
+    num_1 = float(input("Enter the first number: "))
+    num_2 = float(input("Enter the second number: "))
+    num_3 = float(input("Enter the third number: "))
+    num_4 = float(input("Enter the fourth number: "))
+    num_5 = float(input("Enter the fifth number: "))
+    num_6 = float(input("Enter the sixth number: "))
+    num_7 = float(input("Enter the seventh number: "))
+    num_8 = float(input("Enter the eighth number: "))
+    num_9 = float(input("Enter the ninth number: "))
+    num_10 = float(input("Enter the tenth number: "))
+    break
+
+if operation == "*":
+    print(f"\nYou choose multiplication: {get_multiplication(num_1, num_2, num_3, num_4, num_5, num_6, num_7, num_8, num_9, num_10)}")
+elif operation == "-":
+    print(f"\nYou choose subtraction: {get_subtraction(num_1, num_2, num_3, num_4, num_5, num_6, num_7, num_8, num_9, num_10)}")
+elif operation == "+":
+    print(f"\nYou choose addition: {get_addition(num_1, num_2, num_3, num_4, num_5, num_6, num_7, num_8, num_9, num_10)}")
+elif operation == "/":
+    print(f"\nYou choose division: {get_division(num_1, num_2, num_3, num_4, num_5, num_6, num_7, num_8, num_9, num_10)}")
+elif operation == "%":
+    print(f"\nYou choose percentage: {get_percentage(num_1, num_2, num_3, num_4, num_5, num_6, num_7, num_8, num_9, num_10)}")
