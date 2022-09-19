@@ -1,0 +1,52 @@
+print("Hello Python world!")
+"""
+    When You run this code, you should see this output:-
+            Hello Python world! 
+"""
+# Variable:- Variable are often described as boxes you can store values in. It's much 
+#            better to think of variables as labels that you can assign to values. You
+#            can also say that a variable references a certain value.
+
+message = "Hello Python world!"
+print(message)
+"""
+    Run this program to see what happens. You should see the same output
+    you saw previously:-
+        Hello Python world!
+"""
+
+message = "Hello Python Crash Course world!"
+print(message)
+"""
+    Now when you run hello_world.py, you should see two lines of outputes
+        Hello Python world!
+        Hello Python Crash Course world!
+"""
+# You can change the value of a variable in your program at any time,
+# and Python will always keep track of its current value.
+"""
+# Avoiding Name Errors When Using Variables
+
+message = "Hello Python Crash Course reader!"
+print(mesage)
+
+We'll write some code that generates an error on purpose. Enter the following code,
+includingthe misspelled word mesage show in bold:
+"""
+
+""" You wil run this code after remove threeple quotes
+Output:- 
+        Traceback (most recent call last):
+            File 'hello_world.py', line 2, in <module>
+                print(mesage)
+        NameError: name 'mesage' is not defined
+"""
+
+mesage = "Hello Python Crashed Course reader!"
+print(mesage)
+
+# In this case, the program runs succesfully!
+
+"""  Output:-
+            Hello Python Crash Course reader!
+"""
