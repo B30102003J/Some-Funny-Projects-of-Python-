@@ -1,0 +1,32 @@
+def get_now_formula_s(sin_A):
+    A_A = f"{3 * sin_A - 4 * sin_A ** 3}"
+    return A_A
+def get_now_formula_(cos_A):
+    A_B = f"{4 * cos_A ** 3 - 3 * cos_A}"
+    return A_B
+def get_now_formula(tan_A):
+    A_C = f"{3 * tan_A - tan_A ** 3 / 1 - 3 * tan_A ** 2}"
+    return A_C
+print("If you enter the value of sin_A, cos_A, tan_A\n"
+      "then you will get answer in sin_3A, cos_3A, tan_3A")
+h1 = input("\nEnter Your Good Name:- ")
+while True:
+    print("\nEnter 0.0 at any time to quit.")
+    A = float(input("Enter the value of sin_A:- "))
+    if A == 0.0:
+        print(f"Thank you {h1} for use this program.")
+        break
+
+    B = float(input("Enter the value of cos_A:- "))
+    if B == 0.0:
+        print(f"Thank you {h1} for use this program.")
+        break
+
+    C = float(input("Enter the value of tan_A:- "))
+    if C == 0.0:
+        print(f"Thank you {h1} for use this program.")
+        break
+
+    print(f"\nsin_3A = {get_now_formula_s(A)}")
+    print(f"\ncos_3A = {get_now_formula_(B)}")
+    print(f"\ntan_3A = {get_now_formula(C)}")
